@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>الكورسات | AI Tech Academy</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/components.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="container navbar">
+        <a href="index.html" class="brand"><span class="brand-mark">AI</span><span>Tech Academy</span></a>
+        <nav class="nav-links">
+          <a href="index.html">الرئيسية</a>
+          <a href="courses.html" class="active">الكورسات</a>
+          <a href="student-dashboard.html">لوحة الطالب</a>
+          <a href="teacher-dashboard.html">لوحة المعلم</a>
+          <a href="ai-teacher.html">المعلم الذكي</a>
+        </nav>
+        <div class="nav-actions">
+          <a href="login.html" class="btn btn-secondary">تسجيل الدخول</a>
+        </div>
+      </div>
+    </header>
+
+    <main class="section">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <div class="section-tag">استكشف</div>
+            <h2>كل الكورسات</h2>
+          </div>
+        </div>
+        <div class="filter-row" id="course-filters">
+          <button class="filter-chip active" data-filter="all" type="button">الكل</button>
+          <button class="filter-chip" data-filter="Programming" type="button">برمجة</button>
+          <button class="filter-chip" data-filter="Web Development" type="button">تطوير مواقع</button>
+          <button class="filter-chip" data-filter="JavaScript" type="button">JavaScript</button>
+          <button class="filter-chip" data-filter="Cybersecurity" type="button">أمن</button>
+        </div>
+        <div class="search-box" style="margin-bottom:20px; max-width:620px;">
+          <span>🔎</span>
+          <input id="course-search" type="search" placeholder="ابحث عن كورس أو موضوع أو معلم" aria-label="بحث الكورسات" />
+        </div>
+        <div class="card-grid" id="all-courses"></div>
+      </div>
+    </main>
+
+    <script src="data/demo-data.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/security.js"></script>
+    <script src="js/courses.js"></script>
+  </body>
+</html>
+
+
+

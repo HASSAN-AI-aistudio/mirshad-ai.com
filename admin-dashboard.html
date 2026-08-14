@@ -1,0 +1,99 @@
+﻿<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>لوحة المسؤول | AI Tech Academy</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/dashboard.css" />
+    <link rel="stylesheet" href="css/components.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="container navbar">
+        <a href="index.html" class="brand"><span class="brand-mark">AI</span><span>Tech Academy</span></a>
+        <nav class="nav-links"><a href="index.html">الرئيسية</a><a href="courses.html">الكورسات</a><a href="teacher-dashboard.html">لوحة المعلم</a></nav>
+      </div>
+    </header>
+
+    <main class="dashboard-shell">
+      <aside class="dashboard-sidebar">
+        <div class="side-section">
+          <div class="brand"><span class="brand-mark">A</span><span>لوحة المسؤول</span></div>
+        </div>
+        <div class="side-section">
+          <div class="side-title">الإدارة</div>
+          <nav class="side-nav">
+            <a href="#" class="active">نظرة عامة</a>
+            <a href="#">الطلاب</a>
+            <a href="#">المعلمون</a>
+            <a href="#">الكورسات</a>
+            <a href="#">الدروس</a>
+            <a href="#">الشهادات</a>
+          </nav>
+        </div>
+      </aside>
+
+      <div class="dashboard-main">
+        <div class="page-header">
+          <div>
+            <p class="section-tag">لوحة التحكم</p>
+            <h1>الإحصائيات العامة</h1>
+          </div>
+        </div>
+
+        <div class="mini-card-grid">
+          <div class="mini-card"><div class="label">عدد الطلاب</div><div class="value">5420</div></div>
+          <div class="mini-card"><div class="label">عدد المعلمين</div><div class="value">184</div></div>
+          <div class="mini-card"><div class="label">عدد الكورسات</div><div class="value">128</div></div>
+          <div class="mini-card"><div class="label">عدد الطلبات</div><div class="value">27</div></div>
+        </div>
+
+        <div class="dash-grid" style="margin-top:20px;">
+          <div class="list-card">
+            <h3>إجراءات سريعة</h3>
+            <div class="course-list">
+              <button class="btn btn-primary" type="button" data-admin-quick-action="approve-all">موافقة جماعية</button>
+              <button class="btn btn-secondary" type="button" data-admin-quick-action="review-queue">مراجعة قائمة الانتظار</button>
+              <button class="btn btn-ghost" type="button" data-admin-quick-action="broadcast">بث إشعار</button>
+            </div>
+          </div>
+          <div class="list-card">
+            <h3>توصيات AI للإدارة</h3>
+            <div class="notification-list" id="admin-ai-insights"></div>
+          </div>
+        </div>
+
+        <div class="dash-grid" style="margin-top:20px;">
+          <div class="list-card">
+            <h3>طلبات المراجعة</h3>
+            <div class="course-list" id="admin-review-queue"></div>
+          </div>
+          <div class="list-card">
+            <h3>المستخدمون الجدد</h3>
+            <div class="course-list">
+              <div class="course-item"><span>سارة العمري</span><span class="badge info">طالب</span></div>
+              <div class="course-item"><span>محمود هاشم</span><span class="badge success">معلم</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script src="data/demo-data.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/security.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        if (!window.AI_TECH_ACADEMY_UTILS || !window.AI_TECH_ACADEMY_UTILS.requireRole('admin')) return;
+      });
+    </script>
+    <script src="js/admin.js"></script>
+  </body>
+</html>
+
+
+
+
+

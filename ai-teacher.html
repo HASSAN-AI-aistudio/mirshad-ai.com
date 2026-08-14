@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>المعلم الذكي | AI Tech Academy</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/components.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="container navbar">
+        <a href="index.html" class="brand"><span class="brand-mark">AI</span><span>Tech Academy</span></a>
+        <nav class="nav-links">
+          <a href="index.html">الرئيسية</a>
+          <a href="courses.html">الكورسات</a>
+          <a href="student-dashboard.html">لوحة الطالب</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="section">
+      <div class="container">
+        <div class="course-preview">
+          <div class="card" style="padding: 22px;">
+            <div style="display:flex; align-items:center; gap: 16px;">
+              <div class="avatar-lg"><img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=200&q=80" alt="AI Teacher" /></div>
+              <div>
+                <h1 style="margin:0;">AI Tech Academy Tutor</h1>
+                <p class="card-text" style="margin:6px 0;">الخبرة: AI Learning Coach</p>
+              </div>
+            </div>
+            <p class="card-text">أساعدك في شرح المفاهيم، مراجعة الأكواد، اقتراح التمارين، وتحضير المشاريع خطوة بخطوة.</p>
+            <div class="mini-grid">
+              <div class="stat-box"><strong>12</strong><span>كورس</span></div>
+              <div class="stat-box"><strong>1800</strong><span>طالب</span></div>
+              <div class="stat-box"><strong>4.9</strong><span>تقييم</span></div>
+              <div class="stat-box"><strong>24/7</strong><span>متاح</span></div>
+            </div>
+          </div>
+
+          <div class="card" style="padding: 18px;">
+            <div class="chat-window">
+              <div class="chat-header">
+                <strong>محادثة المعلم الذكي</strong>
+                <span class="tag success">متصل</span>
+              </div>
+              <div class="chat-body" id="chat-body">
+                <div class="message ai">مرحباً! أنا المعلم الذكي. أستطيع شرح أي مفهوم أو مراجعة كودك أو إنشاء مشروع.</div>
+              </div>
+              <div class="chat-input">
+                <input id="chat-input" type="text" placeholder="اسأل عن شرح، مثال، تمرين، كود، أو مشروع..." aria-label="رسالة المعلم الذكي" />
+                <button class="btn btn-primary" type="button" id="send-chat">إرسال</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script src="data/demo-data.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/security.js"></script>
+    <script src="js/ai-teacher.js"></script>
+  </body>
+</html>
+
+
+

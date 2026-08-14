@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>الملف الشخصي | AI Tech Academy</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/components.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="container navbar">
+        <a href="index.html" class="brand"><span class="brand-mark">AI</span><span>Tech Academy</span></a>
+        <nav class="nav-links"><a href="student-dashboard.html">لوحة الطالب</a><a href="settings.html">الإعدادات</a></nav>
+      </div>
+    </header>
+
+    <main class="section">
+      <div class="container">
+        <div class="card" style="padding: 24px;">
+          <div style="display:flex; align-items:center; gap:20px; flex-wrap:wrap;">
+            <div class="avatar-lg" style="width:80px; height:80px;"><img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=400&q=80" alt="Profile" /></div>
+            <div>
+              <h1 style="margin: 0;" data-user-name>أحمد السلمي</h1>
+              <p class="card-text" style="margin: 6px 0 0;" data-user-role>طالب • Frontend & JavaScript</p>
+            </div>
+          </div>
+          <div class="two-col" style="margin-top: 22px;">
+            <div class="info-card">
+              <h3>المعلومات الأساسية</h3>
+              <p data-user-email>البريد: ahmed@example.com</p>
+              <p>المستوى: متوسط</p>
+              <p>الدولة: المملكة العربية السعودية</p>
+            </div>
+            <div class="info-card">
+              <h3>إنجازات</h3>
+              <p>الكورسات المكتملة: 7</p>
+              <p>المشاريع: 3</p>
+              <p>الشهادات: 2</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script src="data/demo-data.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/security.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        if (!window.AI_TECH_ACADEMY_UTILS || !window.AI_TECH_ACADEMY_UTILS.requireRole('student')) return;
+      });
+    </script>
+    <script src="js/app.js"></script>
+  </body>
+</html>
+
+
+
+

@@ -1,0 +1,111 @@
+﻿<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>إنشاء حساب | AI Tech Academy</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/auth.css" />
+    <link rel="stylesheet" href="css/components.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="container navbar">
+        <a href="index.html" class="brand"><span class="brand-mark">AI</span><span>Tech Academy</span></a>
+        <nav class="nav-links">
+          <a href="index.html">الرئيسية</a>
+          <a href="courses.html">الكورسات</a>
+          <a href="ai-teacher.html">المعلم الذكي</a>
+        </nav>
+        <div class="nav-actions">
+          <button class="btn btn-ghost theme-toggle" type="button" data-theme-toggle="toggle" aria-label="تبديل الوضع">
+            <span class="theme-toggle__icon" aria-hidden="true">🌙</span>
+            <span class="theme-toggle__label">الوضع الداكن</span>
+          </button>
+          <button type="button" class="btn btn-ghost lang-toggle" data-lang-toggle="toggle" aria-label="Toggle language"
+            onclick="const current = localStorage.getItem('ai-tech-language') === 'en' ? 'en' : 'ar'; const next = current === 'ar' ? 'en' : 'ar'; if (window.AI_TECH_ACADEMY_UTILS && window.AI_TECH_ACADEMY_UTILS.applyLanguage) window.AI_TECH_ACADEMY_UTILS.applyLanguage(next);">
+            <span class="lang-toggle__icon" aria-hidden="true">🇸🇦</span>
+            <span class="lang-toggle__label">AR</span>
+          </button>
+          <a href="login.html" class="btn btn-secondary btn-with-icon">
+            <span class="btn-icon" aria-hidden="true">🔐</span>
+            <span>تسجيل الدخول</span>
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <main class="auth-page">
+      <div class="auth-card">
+        <div class="auth-header">
+          <div class="brand" style="justify-content:center; margin-bottom:10px;"><span class="brand-mark">AI</span><span>Tech Academy</span></div>
+          <h1 data-i18n="registerTitle">إنشاء حساب</h1>
+          <p data-i18n="registerSubtitle">ابدأ رحلتك كطالب، معلم، أو مسؤول.</p>
+        </div>
+
+        <form id="register-form" novalidate>
+          <div class="form-group">
+            <label for="full-name" data-i18n="fullName">الاسم الكامل</label>
+            <input id="full-name" name="name" type="text" data-i18n-placeholder="placeholderName" placeholder="أدخل اسمك" required />
+            <div class="field-error" data-error-for="full-name"></div>
+          </div>
+
+          <div class="form-group">
+            <label for="register-email" data-i18n="email">البريد الإلكتروني</label>
+            <input id="register-email" name="email" type="email" data-i18n-placeholder="placeholderEmail" placeholder="name@example.com" required />
+            <div class="field-error" data-error-for="register-email"></div>
+          </div>
+
+          <div class="form-group">
+            <label for="register-password" data-i18n="password">كلمة المرور</label>
+            <div class="input-row">
+              <input id="register-password" name="password" type="password" data-i18n-placeholder="placeholderPassword" placeholder="••••••••" required />
+              <button class="password-toggle" type="button" data-toggle-password="register-password" aria-label="إظهار كلمة المرور">عرض</button>
+            </div>
+            <div class="password-meter"><div class="password-meter-bar" id="password-meter-bar"></div></div>
+            <div class="field-success" id="password-strength-text"></div>
+            <div class="field-error" data-error-for="register-password"></div>
+          </div>
+
+          <div class="form-group">
+            <label for="confirm-password" data-i18n="confirmPassword">تأكيد كلمة المرور</label>
+            <div class="input-row">
+              <input id="confirm-password" name="confirmPassword" type="password" data-i18n-placeholder="placeholderConfirmPassword" placeholder="أعد إدخال كلمة المرور" required />
+              <button class="password-toggle" type="button" data-toggle-password="confirm-password" aria-label="إظهار كلمة المرور">عرض</button>
+            </div>
+            <div class="field-error" data-error-for="confirm-password"></div>
+          </div>
+
+          <div class="form-group">
+            <label for="account-role" data-i18n="accountType">نوع الحساب</label>
+            <select id="account-role" name="role">
+              <option value="student" data-i18n="student">طالب</option>
+              <option value="teacher" data-i18n="teacher">معلم</option>
+              <option value="admin" data-i18n="admin">مسؤول</option>
+            </select>
+          </div>
+
+          <div class="checkbox-row" style="margin-bottom: 12px;">
+            <input type="checkbox" id="terms" required />
+            <label for="terms" data-i18n="acceptTerms">أوافق على الشروط والأحكام.</label>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-with-icon" style="width:100%;">
+            <span class="btn-icon" aria-hidden="true">✨</span>
+            <span>إنشاء الحساب</span>
+          </button>
+        </form>
+
+        <p style="text-align:center; color: var(--muted); margin-top:18px;"><span data-i18n="accountPrompt">هل لديك حساب؟</span> <a href="login.html" data-i18n="login">تسجيل الدخول</a></p>
+      </div>
+    </main>
+
+    <script src="data/demo-data.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/security.js"></script>
+    <script src="js/auth.js"></script>
+  </body>
+</html>
+
+

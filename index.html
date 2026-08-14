@@ -1,0 +1,378 @@
+﻿<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="AI Tech Academy منصة تعليمية تقنية حديثة للتعلم وتطوير المهارات." />
+    <title>AI Tech Academy | تعلم التكنولوجيا بذكاء</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+    <link rel="stylesheet" href="css/components.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="container navbar">
+        <a href="index.html" class="brand" aria-label="AI Tech Academy home">
+          <span class="brand-mark">A</span>
+          <span>AI Tech Academy</span>
+        </a>
+
+        <nav class="nav-links" aria-label="Navigation principale">
+          <a href="index.html">الرئيسية</a>
+          <a href="courses.html">الكورسات</a>
+          <a href="learning-path.html">المسارات</a>
+          <a href="exams.html">الاختبارات</a>
+          <a href="certificates.html">الشهادات</a>
+          <a href="review.html">المراجعات</a>
+          <a href="student-dashboard.html">لوحة الطالب</a>
+          <a href="teacher-dashboard.html">لوحة المعلم</a>
+          <a href="admin-dashboard.html">لوحة المسؤول</a>
+          <a href="ai-teacher.html">المعلم الذكي</a>
+        </nav>
+
+        <div class="nav-actions">
+          <button class="btn btn-ghost theme-toggle" type="button" data-theme-toggle="toggle" aria-label="تبديل الوضع">
+            <span class="theme-toggle__icon" aria-hidden="true">🌙</span>
+            <span class="theme-toggle__label">الوضع الداكن</span>
+          </button>
+          <button type="button" class="btn btn-ghost lang-toggle" data-lang-toggle="toggle" aria-label="Toggle language"
+            onclick="const current = localStorage.getItem('ai-tech-language') === 'en' ? 'en' : 'ar'; const next = current === 'ar' ? 'en' : 'ar'; if (window.AI_TECH_ACADEMY_UTILS && window.AI_TECH_ACADEMY_UTILS.applyLanguage) window.AI_TECH_ACADEMY_UTILS.applyLanguage(next);">
+            <span class="lang-toggle__icon" aria-hidden="true">🇸🇦</span>
+            <span class="lang-toggle__label">AR</span>
+          </button>
+          <a href="login.html" class="btn btn-secondary btn-with-icon">
+            <span class="btn-icon" aria-hidden="true">🔐</span>
+            <span>تسجيل الدخول</span>
+          </a>
+          <a href="register.html" class="btn btn-primary btn-with-icon">
+            <span class="btn-icon" aria-hidden="true">✨</span>
+            <span>إنشاء حساب</span>
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="container hero-grid">
+          <div>
+            <div class="kicker" data-i18n="heroKicker">⚡ تعلم بتجربة ذكية وموجهة</div>
+            <h1 data-i18n="heroTitle">تعلّم التكنولوجيا بذكاء</h1>
+            <p data-i18n="heroSubtitle">تعلم من المعلمين، واستعن بالذكاء الاصطناعي، وابنِ مهاراتك خطوة بخطوة.</p>
+            <div class="hero-actions">
+              <a href="register.html" class="btn btn-primary" data-i18n="startLearning">ابدأ التعلم</a>
+              <a href="courses.html" class="btn btn-secondary" data-i18n="exploreCourses">استكشف الكورسات</a>
+              <a href="ai-teacher.html" class="btn btn-ghost" data-i18n="talkToAI">تحدث مع المعلم الذكي</a>
+            </div>
+            <div class="feature-pills" aria-label="Tags">
+              <span class="pill">Python</span>
+              <span class="pill">JavaScript</span>
+              <span class="pill">Web Development</span>
+              <span class="pill">AI</span>
+              <span class="pill">Cybersecurity</span>
+            </div>
+          </div>
+
+          <div class="hero-visual">
+            <div class="glass-card">
+              <div class="card-meta">
+                <span class="tag primary">أفضل مسار تعلم</span>
+                <span>+ 12k متعلم</span>
+              </div>
+              <h3 style="margin: 16px 0 8px;" data-i18n="webTrackTitle">مسار تطوير الويب</h3>
+              <div class="progress-bar" aria-label="Course progress">
+                <span style="width: 72%"></span>
+              </div>
+              <div class="hero-stat-grid">
+                <div class="stat-box">
+                  <strong>12</strong>
+                  <span>أسبوع</span>
+                </div>
+                <div class="stat-box">
+                  <strong>36</strong>
+                  <span>درس</span>
+                </div>
+                <div class="stat-box">
+                  <strong>4.9</strong>
+                  <span>تقييم</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="section-header">
+            <div>
+              <div class="section-tag" data-i18n="featuredCoursesTag">الكورسات المميزة</div>
+              <h2 data-i18n="featuredCoursesHeading">منصات تعلم تقني تركز على النتائج</h2>
+            </div>
+            <a href="courses.html" class="btn btn-secondary" data-i18n="viewAllCourses">عرض جميع الكورسات</a>
+          </div>
+          <div class="card-grid" id="featured-courses"></div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="section-header">
+            <div>
+              <div class="section-tag" data-i18n="platformFeaturesTag">مميزات المنصة</div>
+              <h2 data-i18n="platformFeaturesHeading">كل ما يحتاجه المتعلم ليصبح أكثر فاعلية</h2>
+            </div>
+          </div>
+          <div class="feature-grid" id="platform-features"></div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="section-header">
+            <div>
+              <div class="section-tag" data-i18n="learningFieldsTag">مجالات تعليمية</div>
+              <h2 data-i18n="learningFieldsHeading">المجالات التي تغطيها المنصة</h2>
+            </div>
+          </div>
+          <div class="mini-grid">
+            <div class="info-card card">
+              <div class="info-icon">💻</div>
+              <h3>برمجة</h3>
+              <p class="card-text">تعلّم من الصفر إلى التطبيقات العملية.</p>
+            </div>
+            <div class="info-card card">
+              <div class="info-icon">🌐</div>
+              <h3>تطوير المواقع</h3>
+              <p class="card-text">HTML، CSS، JavaScript، واجهات حديثة.</p>
+            </div>
+            <div class="info-card card">
+              <div class="info-icon">🤖</div>
+              <h3>الذكاء الاصطناعي</h3>
+              <p class="card-text">تطبيقات AI وممارسات عملية.</p>
+            </div>
+            <div class="info-card card">
+              <div class="info-icon">🛡️</div>
+              <h3>الأمن السيبراني</h3>
+              <p class="card-text">التوعية، الدفاع، والسلوك الآمن.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="section-header">
+            <div>
+              <div class="section-tag" data-i18n="teachersTag">المعلمون</div>
+              <h2 data-i18n="teachersHeading">معلمون خبراء في مجالاتهم</h2>
+            </div>
+          </div>
+          <div class="card-grid" id="featured-teachers"></div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="section-header">
+            <div>
+              <div class="section-tag" data-i18n="aiTeacherTag">المعلم الذكي</div>
+              <h2 data-i18n="aiTeacherHeading">AI Teacher داخل المنصة</h2>
+            </div>
+          </div>
+          <div class="course-preview">
+            <div class="card">
+              <div class="card-media">
+                <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=1200&q=80" alt="AI Teacher" />
+              </div>
+              <div class="card-body">
+                <div class="card-meta">
+                  <span class="tag primary">AI</span>
+                  <span>1,800 + طالب</span>
+                </div>
+                <h3 class="card-title">AI Tech Academy Tutor</h3>
+                <p class="card-text">يشرح لك الدروس، يراجع الأكواد، يجيب على أسئلتك، ويقترح تمارين.</p>
+                <a href="ai-teacher.html" class="btn btn-primary">ابدأ محادثة الآن</a>
+              </div>
+            </div>
+            <div class="card" style="padding: 22px;">
+              <h3>ماذا يمكن للمعلم الذكي أن يفعل؟</h3>
+              <div class="list-stack">
+                <div class="list-item"><span>شرح المفاهيم الصعبة</span><span>✓</span></div>
+                <div class="list-item"><span>تبسيط الدروس</span><span>✓</span></div>
+                <div class="list-item"><span>حل الأكواد</span><span>✓</span></div>
+                <div class="list-item"><span>اقتراح مشاريع</span><span>✓</span></div>
+                <div class="list-item"><span>تقييم ومراجعة</span><span>✓</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="section-header">
+            <div>
+              <div class="section-tag">لماذا منصتنا؟</div>
+              <h2>بناؤها لرحلة تعلم فعّالة</h2>
+            </div>
+          </div>
+          <div class="steps">
+            <div class="step-box">
+              <div class="step-number">1</div>
+              <h3>تعلّم بالأهداف</h3>
+              <p>تدرّج واضح من المبتدئ إلى المتقدم مع خطة تعليمية منضبطة.</p>
+            </div>
+            <div class="step-box">
+              <div class="step-number">2</div>
+              <h3>دروس عملية</h3>
+              <p>كل درس مصمم مع أمثلة وأكواد وتطبيقات فعلية.</p>
+            </div>
+            <div class="step-box">
+              <div class="step-number">3</div>
+              <h3>مراجعة ذكية</h3>
+              <p>توصيات، اختبارات، ومراجعة مستندة إلى نتائجك.</p>
+            </div>
+            <div class="step-box">
+              <div class="step-number">4</div>
+              <h3>خبرة احترافية</h3>
+              <p>واجهة حديثة، تفاعل سريع، وأداء موثوق على جميع الأجهزة.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="section-header">
+            <div>
+              <div class="section-tag">كيف تعمل المنصة؟</div>
+              <h2>رحلة مستخدم تفاعلية وسريعة</h2>
+            </div>
+          </div>
+          <div class="stats-band">
+            <div class="stat-card">
+              <strong>01</strong>
+              <span>سجل حسابك</span>
+            </div>
+            <div class="stat-card">
+              <strong>02</strong>
+              <span>اختر مسارك</span>
+            </div>
+            <div class="stat-card">
+              <strong>03</strong>
+              <span>تابع الدروس</span>
+            </div>
+            <div class="stat-card">
+              <strong>04</strong>
+              <span>حل الاختبارات</span>
+            </div>
+            <div class="stat-card">
+              <strong>05</strong>
+              <span>احصل على شهادة</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="section-header">
+            <div>
+              <div class="section-tag">آراء الطلاب</div>
+              <h2>ماذا يقول المتعلمون؟</h2>
+            </div>
+          </div>
+          <div class="testimonials">
+            <div class="quote-card">
+              <p>“المنصة احترافية جدًا، وأحببت كيف يشرح المعلم الذكي المفاهيم بشكل مبسط.”</p>
+              <div class="person">
+                <div class="avatar"><img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=200&q=80" alt="Student" /></div>
+                <div><strong>سارة</strong><br /><span>مبتدئة في Python</span></div>
+              </div>
+            </div>
+            <div class="quote-card">
+              <p>“تجربة التعلم راقية، والواجهة واضحة والاختبارات فعالة جدًا.”</p>
+              <div class="person">
+                <div class="avatar"><img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=200&q=80" alt="Student" /></div>
+                <div><strong>أحمد</strong><br /><span>طالب ويب</span></div>
+              </div>
+            </div>
+            <div class="quote-card">
+              <p>“أفضل جزء هو أنني أستطيع أن أطلب شرحاً وحلّاً مباشرة من المعلم الذكي.”</p>
+              <div class="person">
+                <div class="avatar"><img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=200&q=80" alt="Student" /></div>
+                <div><strong>يوسف</strong><br /><span>متعلم JavaScript</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="section-header">
+            <div>
+              <div class="section-tag">الإحصائيات</div>
+              <h2>أرقامنا تعكس الثقة</h2>
+            </div>
+          </div>
+          <div class="stats-band" id="site-stats"></div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="section-header">
+            <div>
+              <div class="section-tag">الأسئلة الشائعة</div>
+              <h2>أسئلة متكررة</h2>
+            </div>
+          </div>
+          <div class="faq">
+            <div class="faq-item">
+              <h3>هل المنصة مناسبة للمبتدئين؟</h3>
+              <p>نعم، وتوفر مسارات تعليمية تبدأ من المبتدئين وصولاً إلى المتقدمين.</p>
+            </div>
+            <div class="faq-item">
+              <h3>هل يوجد دعم AI؟</h3>
+              <p>نعم، يمكن للطلاب التفاعل مع المعلم الذكي داخل المنصة.</p>
+            </div>
+            <div class="faq-item">
+              <h3>هل يمكن إنشاء كورس؟</h3>
+              <p>نعم، المعلمون يمكنهم إنشاء الوسائط، الدروس، والمحتوى وإرساله للمراجعة.</p>
+            </div>
+            <div class="faq-item">
+              <h3>هل الموقع يعمل على الهاتف؟</h3>
+              <p>نعم، التصميم متجاوب بالكامل ويعمل على مختلف أحجام الشاشات.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer-inner">
+        <div>
+          <div class="brand"><span class="brand-mark">AI</span><span>Tech Academy</span></div>
+          <p>منصة تعليمية متكاملة للتقنية والذكاء الاصطناعي.</p>
+        </div>
+        <div class="footer-links">
+          <a href="courses.html">الكورسات</a>
+          <a href="ai-teacher.html">المعلم الذكي</a>
+          <a href="login.html">تسجيل الدخول</a>
+          <a href="register.html">إنشاء حساب</a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="data/demo-data.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/security.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>
+
+
+
+

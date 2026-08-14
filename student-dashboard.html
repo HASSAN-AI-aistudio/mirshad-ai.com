@@ -1,0 +1,114 @@
+﻿<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>لوحة الطالب | AI Tech Academy</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/dashboard.css" />
+    <link rel="stylesheet" href="css/components.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="container navbar">
+        <a href="index.html" class="brand"><span class="brand-mark">AI</span><span>Tech Academy</span></a>
+        <nav class="nav-links"><a href="index.html">الرئيسية</a><a href="courses.html">الكورسات</a><a href="ai-teacher.html">المعلم الذكي</a></nav>
+        <div class="nav-actions"><button class="btn btn-ghost" type="button" data-theme-toggle="toggle">السمة</button></div>
+      </div>
+    </header>
+
+    <main class="dashboard-shell">
+      <aside class="dashboard-sidebar">
+        <div class="side-section">
+          <div class="brand"><span class="brand-mark">A</span><span>لوحة الطالب</span></div>
+        </div>
+        <div class="side-section">
+          <div class="side-title">التصفح</div>
+          <nav class="side-nav">
+            <a href="#" class="active">الصفحة الرئيسية</a>
+            <a href="courses.html">الكورسات</a>
+            <a href="exams.html">الاختبارات</a>
+            <a href="certificates.html">الشهادات</a>
+            <a href="profile.html">الملف الشخصي</a>
+            <a href="settings.html">الإعدادات</a>
+          </nav>
+        </div>
+      </aside>
+
+      <div class="dashboard-main">
+        <div class="page-header">
+          <div class="dashboard-header">
+            <div class="avatar-lg"><img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=1200&q=80" alt="Student" /></div>
+            <div>
+              <p class="section-tag">مرحباً</p>
+              <h1>أحمد السلمي</h1>
+            </div>
+          </div>
+          <a href="ai-teacher.html" class="btn btn-primary">تحدث مع المعلم الذكي</a>
+        </div>
+
+        <div class="mini-card-grid">
+          <div class="mini-card"><div class="label">نسبة التقدم</div><div class="value">78%</div></div>
+          <div class="mini-card"><div class="label">الكورسات الحالية</div><div class="value">4</div></div>
+          <div class="mini-card"><div class="label">الاختبارات</div><div class="value">11</div></div>
+          <div class="mini-card"><div class="label">الشهادات</div><div class="value">2</div></div>
+        </div>
+
+        <div class="dash-grid" style="margin-top:22px;">
+          <div class="list-card">
+            <h3>خطة التعلم الذكية</h3>
+            <div class="course-list" id="student-smart-plan"></div>
+          </div>
+          <div class="list-card">
+            <h3>أحدث التوصيات AI</h3>
+            <div class="notification-list" id="student-ai-recommendations"></div>
+          </div>
+        </div>
+
+        <div class="dash-grid" style="margin-top:22px;">
+          <div class="list-card">
+            <h3>الكورسات</h3>
+            <div class="course-list" id="student-course-list"></div>
+          </div>
+          <div class="list-card">
+            <h3>آخر درس</h3>
+            <div class="course-item">
+              <div>
+                <strong>مقدمة إلى Python</strong><br />
+                <small>المدة: 12 دقيقة</small>
+              </div>
+              <span class="badge info">متابعة</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="dash-grid" style="margin-top:20px;">
+          <div class="list-card">
+            <h3>الاختبارات</h3>
+            <div class="course-list" id="student-exams"></div>
+          </div>
+          <div class="list-card">
+            <h3>الإشعارات</h3>
+            <div class="notification-list" id="student-notifications"></div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script src="data/demo-data.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/security.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        if (!window.AI_TECH_ACADEMY_UTILS || !window.AI_TECH_ACADEMY_UTILS.requireRole('student')) return;
+      });
+    </script>
+    <script src="js/student.js"></script>
+  </body>
+</html>
+
+
+
+
+

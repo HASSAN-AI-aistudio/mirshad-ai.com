@@ -1,0 +1,106 @@
+﻿<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>لوحة المعلم | AI Tech Academy</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/dashboard.css" />
+    <link rel="stylesheet" href="css/components.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="container navbar">
+        <a href="index.html" class="brand"><span class="brand-mark">AI</span><span>Tech Academy</span></a>
+        <nav class="nav-links"><a href="index.html">الرئيسية</a><a href="courses.html">الكورسات</a><a href="ai-teacher.html">المعلم الذكي</a></nav>
+      </div>
+    </header>
+
+    <main class="dashboard-shell">
+      <aside class="dashboard-sidebar">
+        <div class="side-section">
+          <div class="brand"><span class="brand-mark">A</span><span>لوحة المعلم</span></div>
+        </div>
+        <div class="side-section">
+          <div class="side-title">إدارة</div>
+          <nav class="side-nav">
+            <a href="#" class="active">لوحة التحكم</a>
+            <a href="courses.html">المكتبة</a>
+            <a href="lesson.html">إنشاء درس</a>
+            <a href="#" data-open-modal="ai-course-builder-modal">AI Course Builder</a>
+            <a href="#" data-open-modal="ai-lesson-builder-modal">AI Lesson Builder</a>
+          </nav>
+        </div>
+      </aside>
+
+      <div class="dashboard-main">
+        <div class="page-header">
+          <div>
+            <p class="section-tag">إحصائيات</p>
+            <h1>لوحة المعلم</h1>
+          </div>
+          <button class="btn btn-primary" type="button" data-open-modal="ai-course-builder-modal">إنشاء كورس بالذكاء الاصطناعي</button>
+        </div>
+
+        <div class="mini-card-grid">
+          <div class="mini-card"><div class="label">إجمالي الطلاب</div><div class="value">860</div></div>
+          <div class="mini-card"><div class="label">الكورسات</div><div class="value">12</div></div>
+          <div class="mini-card"><div class="label">الدروس</div><div class="value">94</div></div>
+          <div class="mini-card"><div class="label">قيد المراجعة</div><div class="value">3</div></div>
+        </div>
+
+        <div class="dash-grid" style="margin-top:20px;">
+          <div class="list-card">
+            <h3>الكورسات المنشورة</h3>
+            <div class="course-list" id="teacher-courses"></div>
+          </div>
+          <div class="list-card">
+            <h3>المسودات</h3>
+            <div class="course-list" id="teacher-drafts"></div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <div class="modal" id="ai-course-builder-modal">
+      <div class="modal-card">
+        <div class="modal-header"><h3>إنشاء كورس بالذكاء الاصطناعي</h3><button class="close-btn" type="button" data-close-modal="ai-course-builder-modal">×</button></div>
+        <form id="ai-course-builder-form">
+          <div class="form-group"><label>اسم الموضوع</label><input type="text" name="topic" value="Python" /></div>
+          <div class="form-group"><label>المستوى</label><input type="text" name="level" value="مبتدئ" /></div>
+          <div class="form-group"><label>المدة</label><input type="text" name="duration" value="8 أسابيع" /></div>
+          <button class="btn btn-primary" type="submit">إنشاء الكورس</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="modal" id="ai-lesson-builder-modal">
+      <div class="modal-card">
+        <div class="modal-header"><h3>إنشاء درس بالذكاء الاصطناعي</h3><button class="close-btn" type="button" data-close-modal="ai-lesson-builder-modal">×</button></div>
+        <form id="ai-lesson-builder-form">
+          <div class="form-group"><label>عنوان الموضوع</label><input type="text" name="lessonTitle" value="قواعد Python" /></div>
+          <div class="form-group"><label>المستوى</label><input type="text" name="lessonLevel" value="مبتدئ" /></div>
+          <div class="form-group"><label>اللغة</label><input type="text" name="language" value="العربية" /></div>
+          <div class="form-group"><label>مدة الدرس</label><input type="text" name="lessonDuration" value="15 دقيقة" /></div>
+          <button class="btn btn-primary" type="submit">اقتراح المحتوى</button>
+        </form>
+      </div>
+    </div>
+
+    <script src="data/demo-data.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/security.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        if (!window.AI_TECH_ACADEMY_UTILS || !window.AI_TECH_ACADEMY_UTILS.requireRole('teacher')) return;
+      });
+    </script>
+    <script src="js/teacher.js"></script>
+  </body>
+</html>
+
+
+
+
+

@@ -1,0 +1,196 @@
+﻿<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>مسار التعلم | AI Tech Academy</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/dashboard.css" />
+    <link rel="stylesheet" href="css/components.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+    <style>
+      .roadmap-container { display: grid; grid-template-columns: 1fr 2fr; gap: 24px; }
+      .roadmap-sidebar { display: flex; flex-direction: column; gap: 16px; }
+      .roadmap-path { position: relative; }
+      .roadmap-step { position: relative; padding-left: 40px; margin-bottom: 24px; }
+      .roadmap-step::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        background: var(--primary);
+        border: 3px solid var(--bg-secondary);
+      }
+      .roadmap-step.completed::before { background: var(--success); }
+      .roadmap-step.current::before {
+        background: var(--warning);
+        animation: pulse 2s infinite;
+      }
+      @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.2); } }
+      .roadmap-step::after {
+        content: '';
+        position: absolute;
+        left: 11px;
+        top: 24px;
+        width: 2px;
+        height: 40px;
+        background: var(--border);
+      }
+      .roadmap-step:last-child::after { display: none; }
+      .step-content h3 { margin: 0 0 8px; font-size: 16px; color: var(--text); }
+      .step-meta { display: flex; gap: 12px; font-size: 13px; color: var(--muted); }
+      .step-progress { width: 100%; height: 4px; background: var(--bg-secondary); border-radius: 2px; margin-top: 8px; overflow: hidden; }
+      .step-progress-bar { height: 100%; background: var(--success); }
+      .roadmap-filters { display: flex; gap: 8px; flex-wrap: wrap; }
+      .filter-chip {
+        padding: 6px 12px;
+        border-radius: 20px;
+        background: var(--bg-secondary);
+        border: 1px solid transparent;
+        cursor: pointer;
+        font-size: 13px;
+        transition: all 0.3s;
+      }
+      .filter-chip.active { background: var(--primary); color: white; }
+      @media (max-width: 768px) {
+        .roadmap-container { grid-template-columns: 1fr; }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="container navbar">
+        <a href="index.html" class="brand"><span class="brand-mark">AI</span><span>Tech Academy</span></a>
+        <nav class="nav-links"><a href="student-dashboard.html">لوحة الطالب</a><a href="profile.html">الملف الشخصي</a></nav>
+      </div>
+    </header>
+
+    <main class="section">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <div class="section-tag">المسار التعليمي</div>
+            <h2>خريطة رحلتك التعليمية</h2>
+          </div>
+          <p style="color: var(--muted); margin-top: 8px;">تتبع تقدمك خلال المسار المخطط له وحقق أهدافك</p>
+        </div>
+
+        <div class="roadmap-container">
+          <aside class="roadmap-sidebar">
+            <div class="card" style="padding: 16px;">
+              <h3 style="margin: 0 0 12px;">مساراتك</h3>
+              <div class="course-list">
+                <div class="course-item" data-path-select="python" style="cursor: pointer; border-radius: 8px; padding: 8px; background: var(--bg-secondary);"><span>🐍 Python Fundamentals</span><span class="badge success">متقدم 60%</span></div>
+                <div class="course-item" data-path-select="web" style="cursor: pointer; border-radius: 8px; padding: 8px;"><span>🌐 Web Development</span><span class="badge warning">مبتدئ 25%</span></div>
+                <div class="course-item" data-path-select="ai" style="cursor: pointer; border-radius: 8px; padding: 8px;"><span>🤖 AI & ML Basics</span><span class="badge info">مبتدئ 10%</span></div>
+              </div>
+            </div>
+            <div class="card" style="padding: 16px;">
+              <h3 style="margin: 0 0 12px;">المرحلة الحالية</h3>
+              <div style="font-size: 13px; line-height: 1.6; color: var(--muted);">
+                <p><strong>الدرس الحالي:</strong> المتغيرات والأنواع</p>
+                <p><strong>المدة المتبقية:</strong> ~3 أيام</p>
+                <p><strong>الإنجاز:</strong> 60%</p>
+              </div>
+            </div>
+          </aside>
+
+          <div class="roadmap-path">
+            <div style="margin-bottom: 20px;">
+              <div class="roadmap-filters" id="roadmap-filters">
+                <div class="filter-chip active" data-filter="all">جميع المراحل</div>
+                <div class="filter-chip" data-filter="completed">مكتملة</div>
+                <div class="filter-chip" data-filter="current">الحالية</div>
+                <div class="filter-chip" data-filter="upcoming">قادمة</div>
+              </div>
+            </div>
+
+            <div id="roadmap-steps">
+              <div class="roadmap-step completed">
+                <div class="step-content">
+                  <h3>✓ الأساسيات</h3>
+                  <div class="step-meta"><span>4 دروس</span><span>•</span><span>مكتملة</span></div>
+                  <div class="step-progress"><div class="step-progress-bar" style="width: 100%;"></div></div>
+                </div>
+              </div>
+
+              <div class="roadmap-step completed">
+                <div class="step-content">
+                  <h3>✓ المتغيرات والأنواع</h3>
+                  <div class="step-meta"><span>6 دروس</span><span>•</span><span>مكتملة</span></div>
+                  <div class="step-progress"><div class="step-progress-bar" style="width: 100%;"></div></div>
+                </div>
+              </div>
+
+              <div class="roadmap-step current">
+                <div class="step-content">
+                  <h3>⚡ التحكم والحلقات</h3>
+                  <div class="step-meta"><span>8 دروس</span><span>•</span><span>جاري الآن</span></div>
+                  <div class="step-progress"><div class="step-progress-bar" style="width: 60%;"></div></div>
+                </div>
+              </div>
+
+              <div class="roadmap-step">
+                <div class="step-content">
+                  <h3>🔜 الدوال والوحدات</h3>
+                  <div class="step-meta"><span>7 دروس</span><span>•</span><span>قريباً</span></div>
+                  <div class="step-progress"><div class="step-progress-bar" style="width: 0%;"></div></div>
+                </div>
+              </div>
+
+              <div class="roadmap-step">
+                <div class="step-content">
+                  <h3>🔜 معالجة الأخطاء</h3>
+                  <div class="step-meta"><span>5 دروس</span><span>•</span><span>قريباً</span></div>
+                  <div class="step-progress"><div class="step-progress-bar" style="width: 0%;"></div></div>
+                </div>
+              </div>
+
+              <div class="roadmap-step">
+                <div class="step-content">
+                  <h3>🎯 المشروع النهائي</h3>
+                  <div class="step-meta"><span>تطبيق عملي</span><span>•</span><span>قريباً</span></div>
+                  <div class="step-progress"><div class="step-progress-bar" style="width: 0%;"></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card" style="margin-top: 24px; padding: 24px; background: linear-gradient(135deg, rgba(51, 102, 204, 0.1), rgba(102, 153, 255, 0.1)); border-left: 4px solid var(--primary);">
+          <div style="display: flex; align-items: center; gap: 16px;">
+            <div style="font-size: 32px;">💡</div>
+            <div>
+              <h3 style="margin: 0 0 4px; color: var(--primary);">نصيحة من المعلم الذكي</h3>
+              <p style="margin: 0; color: var(--muted); font-size: 14px;">أنت تتقدم بشكل رائع! استمر في حل التمارين العملية، وجرب استخدام حلقات while في مشاريعك الخاصة قبل الانتقال للمرحلة التالية.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script src="data/demo-data.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/security.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        if (!window.AI_TECH_ACADEMY_UTILS || !window.AI_TECH_ACADEMY_UTILS.requireRole('student')) return;
+        
+        document.querySelectorAll('.filter-chip').forEach(chip => {
+          chip.addEventListener('click', () => {
+            document.querySelectorAll('.filter-chip').forEach(c => c.classList.remove('active'));
+            chip.classList.add('active');
+          });
+        });
+      });
+    </script>
+    <script src="js/app.js"></script>
+  </body>
+</html>
+
+
+
+
